@@ -1,31 +1,32 @@
 apiVersion: kubeadm.k8s.io/v1alpha1
 kind: MasterConfiguration
-kubernetesVersion: v1.9.0
+kubernetesVersion: v1.9.2
 networking:
   podSubnet: 10.244.0.0/16
 api:
-  advertiseAddress: 192.168.50.210
+  advertiseAddress: 192.168.50.59
 apiServerCertSANs:
-- node1
-- node0
-- node2
+- master1
+- master2
+- master3
 - etcd1
 - etcd2
-- etcd0
-- 192.168.50.210
-- 192.168.50.211
-- 192.168.50.212
-- 192.168.50.209
-- 183.136.239.138
+- etcd3
+- 192.168.50.57
+- 192.168.50.58
+- 192.168.50.59
+- 192.168.50.60
+- k8s.dfwsgroup.com
+- k8s.dfwsgroup.cn
 selfHosted: true
 #featureGates:
 #  CoreDNS: true
 tokenTtl: 999999h
 etcd:
   endpoints:
-  - http://192.168.50.210:2379
-  - http://192.168.50.211:2379
-  - http://192.168.50.212:2379
+  - http://192.168.50.57:2379
+  - http://192.168.50.58:2379
+  - http://192.168.50.59:2379
 controllerManagerExtraArgs:
   address: 0.0.0.0
 schedulerExtraArgs:

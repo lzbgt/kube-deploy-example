@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -a etcd_hosts_ip=("192.168.50.210" "192.168.50.211" "192.168.50.212")
+declare -a etcd_hosts_ip=("192.168.50.57" "192.168.50.58" "192.168.50.59")
 declare -a etcd_hosts
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
