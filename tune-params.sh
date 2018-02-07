@@ -13,6 +13,10 @@ root    soft    nofile  65536
 EOF
 
 # tuning TCP, UDP
+echo 'net.bridge.bridge-nf-call-arptables = 1' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-call-iptables = 1' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-call-ip6tables = 1' >> /etc/sysctl.conf
+echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
 echo 'vm.max_map_count=262144' >> /etc/sysctl.conf
 echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
 echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf

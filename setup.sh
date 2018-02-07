@@ -182,6 +182,11 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 # edit kube-system configmap/kube-proxy
 
+# install workers
+
+# on all workers
+sed -i "s/server: .*/server: https:\/\/192.168.50.60:8443/" /etc/kubernetes/*
+
 
 # setup nfs
 ansible all -m shell -a 'mkdir /mnt/nfs'
