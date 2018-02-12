@@ -2,7 +2,11 @@
 
 yum install -y epel-release yum-utils nfs-utils device-mapper-persistent-data lvm2 && yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && yum-config-manager --enable docker-ce-edge
 
-yum install iptables-services
+# selinux
+setenforce 0
+sed -i -e 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+
+yum install iptables-services -y
 systemctl stop firewalld; systemctl disable firewalld
 
 # setup yum repo gateway
@@ -259,3 +263,13 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values: [node1, node2, node3, node4]
+
+
+# install elasticsearch cluster
+
+# install fluentd daemonset
+
+# install kibana
+
+# install prometheus-operator
+
